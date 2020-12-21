@@ -441,7 +441,7 @@ func NewKubectlCommand(in io.Reader, out, err io.Writer) *cobra.Command {
 		Use:   "kubectl",
 		Short: i18n.T("kubectl controls the Kubernetes cluster manager"),
 		Long: templates.LongDesc(`
-      kubectl controls the Kubernetes cluster manager.
+      kubectl lab1 controls the Kubernetes cluster manager.
 
       Find more information at:
             https://kubernetes.io/docs/reference/kubectl/overview/`),

@@ -71,6 +71,8 @@ func RunCurrentContext(out io.Writer, options *CurrentContextOptions) error {
 		return err
 	}
 
+	fmt.Printf("lab2-2: get current-context %s\n",config.CurrentContext)
+
 	fmt.Fprintf(out, "%s\n", config.CurrentContext)
 	return nil
 }

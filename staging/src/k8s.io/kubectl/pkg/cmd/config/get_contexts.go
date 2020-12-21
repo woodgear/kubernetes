@@ -121,6 +121,10 @@ func (o GetContextsOptions) RunGetContexts() error {
 		return err
 	}
 
+	for name := range config.Contexts {
+		fmt.Printf("lab2-1: get-contexts %s\n",name)
+	}
+
 	out, found := o.Out.(*tabwriter.Writer)
 	if !found {
 		out = printers.GetNewTabWriter(o.Out)

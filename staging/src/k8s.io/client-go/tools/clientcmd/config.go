@@ -23,6 +23,7 @@ import (
 	"path/filepath"
 	"reflect"
 	"sort"
+	"fmt"
 
 	"k8s.io/klog/v2"
 
@@ -186,6 +187,7 @@ func ModifyConfig(configAccess ConfigAccess, newConfig clientcmdapi.Config, rela
 		return err
 	}
 
+	fmt.Printf("old ctx: %s new ctx: %s\n",startingConfig.CurrentContext ,newConfig.CurrentContext)
 	// We need to find all differences, locate their original files, read a partial config to modify only that stanza and write out the file.
 	// Special case the test for current context and preferences since those always write to the default file.
 	if reflect.DeepEqual(*startingConfig, newConfig) {

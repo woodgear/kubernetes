@@ -879,6 +879,8 @@ func (r *Request) request(ctx context.Context, fn func(*http.Request, *http.Resp
 		req = req.WithContext(ctx)
 		req.Header = r.headers
 
+		fmt.Printf("verb: %s \nurl: %s \nbody: %s \nheader: %v\n",r.verb,url,r.body,r.headers)
+
 		r.backoff.Sleep(r.backoff.CalculateBackoff(r.URL()))
 		if retries > 0 {
 			// We are retrying the request that we already send to apiserver
@@ -1015,7 +1017,7 @@ func (r *Request) transformResponse(resp *http.Response, req *http.Request) Resu
 			}
 		}
 	}
-
+	fmt.Printf("Response Body: %s\n", string(body))
 	glogBody("Response Body", body)
 
 	// verify the content type is accurate
